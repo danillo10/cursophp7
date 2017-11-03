@@ -8,6 +8,6 @@ $fileinfo = new finfo(FILEINFO_MIME_TYPE);
 
 $mimetype = $fileinfo->file($filename);
 
-echo "data:$mimetype;base64,$base64";
+$base64encode = "data:$mimetype;base64,$base64";
 
 ?>
