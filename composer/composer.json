@@ -1,0 +1,13 @@
+{
+    "name": "danillo10/composer",
+    "description": "Aula de PGP 7",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Danillo Leão Lopes",
+            "email": "danillo_10_@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
