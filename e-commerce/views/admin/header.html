@@ -258,8 +258,9 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="/sites/trunk/danillo10/e-commerce/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
         <li><a href="/sites/trunk/danillo10/e-commerce/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
+        <li><a href="/sites/trunk/danillo10/e-commerce/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+          <a href="/sites/trunk/danillo10/e-commerce/admin/products"><i class="fa fa-link"></i> <span>Outros</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
