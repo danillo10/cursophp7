@@ -13,17 +13,17 @@ class Page {
 		"footer"=>true,
 		"data"=>[]
 	];
+	public $dir = "/sites/trunk/danillo10/e-commerce";
 
 	public function __construct($opts = array(), $tpl_dir = "/views/")
 	{
-		$dir = "/sites/trunk/danillo10/e-commerce";
 
 		$this->options = array_merge($this->defaults, $opts);
 
 		$config = array(
 		    "base_url"      => null,
-		    "tpl_dir"       => $_SERVER['DOCUMENT_ROOT'].$dir.$tpl_dir,
-		    "cache_dir"     => $_SERVER['DOCUMENT_ROOT'].$dir."/views-cache/",
+		    "tpl_dir"       => $_SERVER['DOCUMENT_ROOT'].$this->dir.$tpl_dir,
+		    "cache_dir"     => $_SERVER['DOCUMENT_ROOT'].$this->dir."/views-cache/",
 		    "debug"         => false
 		);
 
