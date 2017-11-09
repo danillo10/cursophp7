@@ -6,6 +6,8 @@ use \Hcode\DB\Sql;
 use \Hcode\Model;
 
 class Products extends Model {
+
+	public $imgpath = "\\sites\\trunk\\danillo10\\e-commerce\\res\\site\\img\\products\\";
 	
 	public static function listAll()
 	{
@@ -58,6 +60,77 @@ class Products extends Model {
 		$sql->query("DELETE FROM tb_products WHERE idproduct = :idproduct", array(
 			":idproduct"=>$this->getidproduct()
 		));
+
+	}
+
+	public function checkPhoto()
+	{
+
+		if (file_exists(
+			$_SERVER['DOCUMENT_ROOT'] . $this->imgpath . $this->getidproduct() . ".jpg"  
+		)) {
+
+			$url = $this->imgpath . $this->getidproduct() . ".jpg";
+
+		} else {
+
+			$url = $this->imgpath . "\\product.jpg";
+
+		}
+
+		$this->setdesphoto($url);
+
+	}
+
+	public function getValues()
+	{
+
+		$this->checkPhoto();
+
+		$values = parent::getValues();
+
+		return $values;
+
+	}
+
+	public function setPhoto($file)
+	{
+
+		$extension = explode('.', $file['name']);
+		$extension = end($extension);
+
+		switch ($extension) {
+
+			case 'jpg':
+			case 'jpeg':
+				$image = imagecreatefromjpeg($file["tmp_name"]);
+				break;
+
+			case 'png':
+				$image = imagecreatefrompng($file["tmp_name"]);
+				break;
+
+			case 'gif':
+				$image = imagecreatefromgif($file["tmp_name"]);
+				break;
+		}
+
+		
+		$dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 
+			"sites" . DIRECTORY_SEPARATOR .
+			"trunk" . DIRECTORY_SEPARATOR .
+			"danillo10" . DIRECTORY_SEPARATOR .
+			"e-commerce" . DIRECTORY_SEPARATOR .
+			"res" . DIRECTORY_SEPARATOR . 
+			"site" . DIRECTORY_SEPARATOR . 
+			"img" . DIRECTORY_SEPARATOR . 
+			"products" . DIRECTORY_SEPARATOR . $this->getidproduct() . ".jpg";
+
+		imagejpeg($image, $dist);
+
+		imagedestroy($image);
+
+		$this->checkPhoto();
 
 	}
 
