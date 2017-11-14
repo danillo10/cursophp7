@@ -20,17 +20,18 @@
                     <div class="product-upper">
                         <img src="{$value.desphoto}" alt="">
                     </div>
-                    <h2><a href="">{$value.desproduct}</a></h2>
+                    <h2><a href="/sites/trunk/danillo10/e-commerce/products/{$value.desurl}">{$value.desproduct}</a></h2>
                     <div class="product-carousel-price">
                         <ins>R${$value.vlprice}</ins>
-                    </div>  
+                    </div>
                     
                     <div class="product-option-shop">
-                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/sites/trunk/danillo10/e-commerce/cart/{$value.idproduct}/add">Comprar</a>
                     </div>                       
                 </div>
             </div>
             {/loop}
+            
         </div>
         
         <div class="row">
